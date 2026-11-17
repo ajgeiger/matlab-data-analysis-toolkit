@@ -4,3 +4,9 @@
 slprj/
 .DS_Store
 Thumbs.db
+
+# data stays out of the repo
+data/
+*.csv
+*.mat
+!assets/*.mat
