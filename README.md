@@ -1,6 +1,8 @@
-# Modern GUI Toolbox
+# MATLAB Data Analysis Toolkit
 
-MATLAB toolbox I wrote in 2018 as an undergrad at RIT. It adds custom UI objects you can drop into a figure: menus, tables, panels, sliders, a pie/wheel selector, and drag-and-drop trees. There are also some helper functions for trimming, categorizing, and plotting data.
+MATLAB toolkit I wrote in 2018 as an undergrad at RIT. It started as a GUI toolbox and grew into a set of functions for working with data: trimming and cleaning, categorizing, factor analysis, peak finding, joining tables, and plotting, including map plots. It also has custom UI objects you can drop into a figure, like menus, tables, panels, sliders, a wheel selector, and drag-and-drop trees, so you can build a small analysis app around the data.
+
+I originally released it as the Modern GUI Toolbox, which is why that name still shows up in the toolbox file.
 
 The installable file is `release/Modern GUI Toolbox II.mltbx`. The title packed inside that file is Modern GUI Toolbox III, version 11.1.
 
