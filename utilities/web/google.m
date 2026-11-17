@@ -1,6 +1,7 @@
 function output = google(q)
 % google questions obtain answers and links
 % From: Alex Geiger
+% Email: ajg1444@rit.edu
 % 
 % Input search query
 % Output: Structure
