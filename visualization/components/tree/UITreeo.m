@@ -1,7 +1,5 @@
 classdef UITreeo
     % By Alex Geiger.
-    % Questions: ajg1444@rit.edu
-    % Looking for employment.
     %
     % The class is provided since few dynamic updates are provided which
     % will be done in future versions. Use the following class to edit

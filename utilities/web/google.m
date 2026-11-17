@@ -1,33 +1,37 @@
 function output = google(q)
+% google questions obtain answers and links
+% From: Alex Geiger
+% 
+% Input search query
+% Output: Structure
+% answer - google has found an answer it will most likely apear hear
+% links  - the links and info google has returned
 
-q(q == ' ') = '+';
-if isempty(q),return;end
 
-url=['https://www.google.com/search?q=' q ]; 
-txt = urlread(url);
+if isempty(q) % make sure user is searching for something
+    error('Must specify search keyword argument')
+end
 
-try
-    Info = getInfo(txt);
+
+q(q == ' ') = '+'; % switchout spaces for + (HTML FORMATING)
+html_txt = urlread(['https://www.google.com/search?q=',q]);
+
+
+try % try to obtain info
+    output.answer = getInfo(html_txt);
 catch
-    Info = [];
+    output.answer = [];
 end
 
-urls=regexp(txt,'<a href=".*?q=(http://.*?)&amp.*?>(.*?)</a>.*?<cite>(.*?)</cite>.*?<span class="st">(.*?)</span>','tokens')';
-data = getlink(urls);
+urls = regexp(html_txt,'<a href=".*?q=(http://.*?)&amp.*?>(.*?)</a>.*?<cite>(.*?)</cite>.*?<span class="st">(.*?)</span>','tokens')';
 
-output.answer = Info; output.links = data;
+% obtain links and structured data:
+output.links = getlink(urls);
 
 
 end
-% bing search
-% 1. <h2><a href="http://
-% 2. <cite>
-% 3. h="ID=SERP
-% deletes:
-% 1.class="b_attribution" u=
-% 2. <strong>
-% 3. <strong>BHM</strong>
 
+% Obtain Answer:
 function data = getInfo(txt)
 
 Info = strsplit(txt,'<br>'); Info = Info{1};
@@ -72,25 +76,22 @@ elseif isnan(str2double(Answer)) == 0
     data.type = 'string'; data.answer = Answer;
 end
 
-
 end
 
-
+% Obtain Links:
 function data = getlink(urls)
 
-num=0; data = [];
-for k=1:numel(urls), url=urls{k};
-    link=url{1};string=url{2};cite=url{3};description=url{4}; num=num+1;
+data = cell(numel(urls),1);
 
-    string=regexprep(string,'</?br?>','');
-    cite=regexprep(cite,'</?br?>','');
-    description=regexprep(description,'</?br?>','');
-    view=['<a href="matlab:web(''' link ''',''-browser'')">' string '</a>'];
+for k=1:numel(urls), url=urls{k};
     
-    temp.link = link; temp.cite = cite;
-    temp.description = description; temp.view = view;
-    data = joinRows(data,temp); temp = [];
-    
+    s.link = url{1};
+    s.string = regexprep(url{2},'</?br?>',''); s1 = [s.string,'</a>'];
+    s.cite = regexprep(url{3},'</?br?>','');
+    s.description=regexprep(url{4},'</?br?>','');
+    s.view = ['<a href="matlab:web(''',url{1},''',''-browser'')">',s1];
+    data{k} = s;
+
 end
 
 end
