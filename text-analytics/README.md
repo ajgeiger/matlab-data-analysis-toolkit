@@ -4,7 +4,7 @@ This is the code I wrote for two Kaggle competitions run by Jigsaw on toxic onli
 
 People who post toxic comments try hard to get past filters, so the text is full of slang, misspellings, stretched words, letters split with spaces or symbols, look-alike Unicode characters, and links. Most of this code is about decoding that text back into plain words before any modeling. The 2018 code also builds word features for each label.
 
-The comment text has profanity and slurs in it, so some of the word lists and string literals in this code do too. That was the point of the work: finding those words when they were disguised.
+Because the goal was catching abusive words, some of the word lists and string literals include profanity. I took the slurs out of the code before publishing it. The full word tables I built back then were .mat files and aren't included.
 
 ## Folders
 

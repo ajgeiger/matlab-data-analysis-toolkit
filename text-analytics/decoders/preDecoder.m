@@ -90,7 +90,6 @@ classdef preDecoder
             document = strrep(document,'/(.)(.)\','boobz');
             document = strrep(document,'g@y','gay');
             document = strrep(document,'f@t','fat');
-            document = strrep(document,'niglet','nigger');
             
             
             % special cases
@@ -143,7 +142,6 @@ classdef preDecoder
             document = strrep(document,' effin ',' fucking ');
             document = strrep(document,'antiscience','against science');
             document = strrep(document,'chillen','relaxing');
-            document = strrep(document,'niqqer','nigger');
             document = strrep(document,'altright','far right');
             document = strrep(document,'lgtb','lgbt');
             document = strrep(document,'lgbtq','lgbt');
@@ -480,8 +478,6 @@ classdef preDecoder
                 
             elseif startsWith(p.before,'d')
                 [p,obj] = checkSymPattern(obj,p,'dick');
-            elseif startsWith(p.before,'n')
-                [p,obj] = checkSymPattern(obj,p,'nigger');
             elseif startsWith(p.before,'w')
                 [p,obj] = checkSymPattern(obj,p,'whore');
             end

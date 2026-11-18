@@ -20,7 +20,7 @@ h.Document.Add;
 % obtain initial condition data:
 V = char_feature(bd_wd,[2,1]);
 V_logic = V ~= 0;
-Double_Check = {'homo','ass'};
+Double_Check = {'ass'};
 OL = cell(0,2);
 
 
