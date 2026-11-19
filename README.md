@@ -56,12 +56,3 @@ Three pieces of this were on File Exchange. My profile is [here](https://www.mat
 - [feanalysis](https://www.mathworks.com/matlabcentral/fileexchange/65755-feanalysis): exploratory factor analysis. The same work lives on in `data-analysis/factorMethods.m`, `utilities/general/inputMethods.m`, and `examples/factorDemo.m`.
 - [Google Search: Answer & Links](https://www.mathworks.com/matlabcentral/fileexchange/65829-google-search-answer-links): `utilities/web/google.m`. Google has changed its result pages since then, so it no longer parses them.
 
-## Code by other people
-
-`visualization/figure/findjobj.m` is Yair Altman's. I used it to get a search bar with rounded edges. `plot_google_map` by Zohar Bar-Yehuda is in `visualization/plotting/`, and `parfor_progress` by Jeremy Scheff is in `utilities/general/`.
-
-## License
-
-There are two license files, and they are different. `LICENSE` is the Mozilla Public License 2.0, added when I first created the repo. `license.txt` is a BSD-style license, Copyright 2018, AJ Geiger, and the same text is inside the `.mltbx` file. I haven't settled on one yet.
-
-`findjobj.m` keeps Yair Altman's terms, and the other bundled functions belong to their authors.
